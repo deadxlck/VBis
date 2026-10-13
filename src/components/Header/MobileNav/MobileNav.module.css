@@ -47,7 +47,12 @@
   min-height: 100vh;
   min-height: 100dvh;
   background-color: #101a29;
-  background-image: linear-gradient(160deg, #142033 0%, #101a29 45%, #0c141f 100%);
+  background-image: linear-gradient(
+    160deg,
+    #142033 0%,
+    #101a29 45%,
+    #0c141f 100%
+  );
   box-shadow: -24px 0 80px rgba(0, 0, 0, 0.2);
   transform: translateX(105%);
   visibility: hidden;
