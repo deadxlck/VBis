@@ -1,60 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import { Link } from "react-router-dom";
 import css from "./MobileNav.module.css";
 
-export default function MobileNav() {
+type NavLink = { to: string; label: string };
+
+export default function MobileNav({ links }: { links: NavLink[] }) {
   const [isOpen, setOpen] = useState(false);
+  useEffect(() => {
+    if (!isOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [isOpen]);
 
   return (
-    <>
-      {/* 1. The Hamburger Button (Kept in a high z-index container so it stays clickable) */}
-      <div className={css.hamburger} style={{ zIndex: 100 }}>
-        <Hamburger
-          toggled={isOpen}
-          toggle={setOpen}
-          size={24}
-          color={isOpen ? "#000" : "#000"} // Optional: switches color if panel background is light
-          rounded
-          label="Show menu"
-        />
+    <div className={css.mobileNav}>
+      <div className={css.menuButton}>
+        <Hamburger toggled={isOpen} toggle={setOpen} size={22} color="#f7f8f8" rounded label={isOpen ? "Close menu" : "Open menu"} />
       </div>
-
-      {/* 2. Dimmed Background Overlay (Closes menu when clicked) */}
-      {isOpen && <div onClick={() => setOpen(false)} className={css.overlay} />}
-
-      {/* 3. The Slide-Out Panel */}
-      <nav
-        className={css.navigation}
-        style={{
-          // Smooth slide animation based on isOpen state
-          transform: isOpen ? "translateX(0)" : "translateX(100%)",
-          transition: "transform 0.3s ease-in-out",
-        }}
-      >
-        {/* Links close the menu automatically when clicked */}
-        <Link
-          to="/"
-          onClick={() => setOpen(false)}
-          style={{ color: "#000", textDecoration: "none", fontSize: "1.2rem" }}
-        >
-          Home
-        </Link>
-        <Link
-          to="/about"
-          onClick={() => setOpen(false)}
-          style={{ color: "#000", textDecoration: "none", fontSize: "1.2rem" }}
-        >
-          About
-        </Link>
-        <Link
-          to="/contact"
-          onClick={() => setOpen(false)}
-          style={{ color: "#000", textDecoration: "none", fontSize: "1.2rem" }}
-        >
-          Contact
-        </Link>
+      <button className={`${css.backdrop} ${isOpen ? css.backdropVisible : ""}`} aria-label="Close menu" tabIndex={isOpen ? 0 : -1} onClick={() => setOpen(false)} />
+      <nav id="mobile-navigation" aria-label="Mobile navigation" aria-hidden={!isOpen} className={`${css.navigation} ${isOpen ? css.navigationOpen : ""}`}>
+        <span className={css.menuEyebrow}>Navigation</span>
+        {links.map(({ to, label }) => <Link key={to} tabIndex={isOpen ? 0 : -1} to={to}>{label}<span aria-hidden="true">↗</span></Link>)}
+        <p className={css.menuNote}>Let’s build something thoughtful.</p>
       </nav>
-    </>
+    </div>
   );
 }

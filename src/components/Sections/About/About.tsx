@@ -1,45 +1,26 @@
-import { FaCode, FaLightbulb } from "react-icons/fa";
-import { MdSpeed } from "react-icons/md";
-import { IoPhonePortraitOutline } from "react-icons/io5";
-
+import { Link } from "react-router-dom";
 import css from "./About.module.css";
 
+//ui imports
 import Card from "../../ui/Card/Card";
+import SectionTitle from "../../custom/SectionTitle/SectionTitle";
 
-const cards = [
-  {
-    icon: <FaCode />,
-    title: "Clean Code",
-    description: "Writing maintainable, readable and scalable code.",
-  },
-  {
-    icon: <MdSpeed />,
-    title: "Performance",
-    description: "Building fast and optimized applications.",
-  },
-  {
-    icon: <IoPhonePortraitOutline />,
-    title: "Responsive",
-    description: "Creating seamless user experiences on any device.",
-  },
-  {
-    icon: <FaLightbulb />,
-    title: "Problem Solver",
-    description: "Turning complex challenges into simple solutions.",
-  },
-];
+// data imports
+import { cards } from "../../../data/cards";
 
 export default function About() {
   return (
-    <section>
-      <h3>About Me</h3>
-      <div>
+    <section id="about" className={css.section}>
+      <SectionTitle title="About Me" />
+      <div className={css.intro}>
         <h2>Passionate about code and solving problems</h2>
         <p>
-          I'm a fullstack developer who lovesturning ideas into real digital
-          products. I enjoy working with both frontend and backend, always
-          learning something new and impoving my skills
+          I’m a fullstack developer who loves turning ideas into useful digital
+          products. I enjoy working across frontend and backend, learning new
+          tools, and improving every detail along the way.
         </p>
+      </div>
+      <div>
         <div className={css.features}>
           {cards.map((card) => (
             <Card
@@ -50,7 +31,11 @@ export default function About() {
             />
           ))}
         </div>
-        <button>Download CV</button>
+        <div className={css.actions}>
+          <Link className={css.button} to="/about">
+            More about me <span aria-hidden="true"> ↗</span>
+          </Link>
+        </div>
       </div>
     </section>
   );

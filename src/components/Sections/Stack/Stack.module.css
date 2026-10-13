@@ -1,0 +1,34 @@
+.section {
+  width: min(1120px, calc(100% - 48px));
+  margin: auto;
+  padding: 0 0 110px;
+}
+.heading {
+  margin-top: 18px;
+  font-size: clamp(28px, 3.5vw, 38px);
+}
+.skills {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 900px) {
+  .skills {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .section {
+    width: calc(100% - 40px);
+    padding-bottom: 78px;
+  }
+  .skills {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+  }
+}
+@media (max-width: 380px) {
+  .skills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

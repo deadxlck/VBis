@@ -1,5 +1,78 @@
+.section {
+  width: min(1120px, calc(100% - 48px));
+  margin: auto;
+  padding: 100px 0 92px;
+}
+.intro {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  align-items: end;
+  gap: 56px;
+  margin-top: 22px;
+}
+.intro h2 {
+  max-width: 470px;
+  font-size: clamp(30px, 4vw, 44px);
+}
+.intro p {
+  max-width: 520px;
+  font-size: 15px;
+  line-height: 1.8;
+}
 .features {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 38px;
+}
+.actions {
+  margin-top: 27px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid #e0e2eb;
+  border-radius: 11px;
+  color: #323a4b;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+.button:hover {
+  border-color: #8278fb;
+  color: #6d62e8;
+}
+@media (max-width: 900px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .section {
+    width: calc(100% - 40px);
+    padding: 72px 0 64px;
+  }
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .intro h2 {
+    font-size: 34px;
+  }
+  .features {
+    gap: 10px;
+    margin-top: 26px;
+  }
+}
+@media (max-width: 400px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
 }

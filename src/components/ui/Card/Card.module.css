@@ -1,8 +1,18 @@
 .infoCard {
-  padding: 20px;
-  border-radius: 16px;
-  background: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  min-height: 188px;
+  padding: 22px;
+  border: 1px solid #e9eaf1;
+  border-radius: 18px;
+  background: #fff;
+  transition:
+    border-color 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.infoCard:hover {
+  transform: translateY(-3px);
+  border-color: #d6d1ff;
+  box-shadow: 0 14px 32px rgba(31, 37, 60, 0.06);
 }
 
 .infoCardIcon {
@@ -11,11 +21,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-  border-radius: 12px;
+  margin-bottom: 17px;
+  border-radius: 10px;
   background: #f0edff;
   color: #7567e8;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .infoCardTitle {
