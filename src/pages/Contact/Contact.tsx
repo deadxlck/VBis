@@ -43,21 +43,21 @@ export default function Contact() {
           <p>Connect with me or follow along with what I’m working on.</p>
           <div className={css.socialLinks}>
             <a
-              href="https://github.com/vladyslavbihun"
+              href="https://github.com/deadxlck"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaGithub /> GitHub <span aria-hidden="true">↗</span>
             </a>
             <a
-              href="https://www.linkedin.com/in/vladyslav-bihun/"
+              href="https://www.linkedin.com/public-profile/settings/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3BJ5QvwDVvRYqv5z7GMnWVrA%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaLinkedinIn /> LinkedIn <span aria-hidden="true">↗</span>
             </a>
             <a
-              href="https://t.me/vladyslavbihun"
+              href="https://t.me/kkvaldys"
               target="_blank"
               rel="noopener noreferrer"
             >

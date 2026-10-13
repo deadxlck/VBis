@@ -35,7 +35,7 @@ export default function Hero() {
             <li>
               <a
                 aria-label="GitHub"
-                href="https://github.com/vladyslavbihun"
+                href="https://github.com/deadxlck"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -45,7 +45,7 @@ export default function Hero() {
             <li>
               <a
                 aria-label="LinkedIn"
-                href="https://www.linkedin.com/in/vladyslav-bihun/"
+                href="https://www.linkedin.com/public-profile/settings/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact_info%3BJ5QvwDVvRYqv5z7GMnWVrA%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -55,7 +55,7 @@ export default function Hero() {
             <li>
               <a
                 aria-label="Telegram"
-                href="https://t.me/vladyslavbihun"
+                href="https://t.me/kkvaldys"
                 target="_blank"
                 rel="noopener noreferrer"
               >
